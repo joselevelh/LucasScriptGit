@@ -1,6 +1,6 @@
 # Python Script for data analysis Rev.2
 # by Sebastian Betancur, under the supervision of Lucas Mallory
-
+#Worked on by Jose Level as of 2/7/2019
 
 # Keep in mind, this program HAS HARDCODED components for the data results provided by the Probes
 # This program supports undefinite number of KeyFunctions, sensors, and readings.
