@@ -13,9 +13,9 @@ import datetime
 now = datetime.datetime.now()                           #Used to display time.
 #input()
 
-Foldername="cap touch testing"
-                                                        #NOTE:use backslash '/' or double forward '\\' when typing paths
-Dir = "C:/Users/212592605/Documents/"+ str(Foldername)  #Always specify where your TestFiles are by HARDCODING its path to the Dir variable
+Foldername="/LucasScript"
+                    #C:\Users\240027853\Documents\LucasScript                                    #NOTE:use backslash '/' or double forward '\\' when typing paths
+Dir = "C:/Users/240027853/Documents/"+ str(Foldername)  #Always specify where your TestFiles are by HARDCODING its path to the Dir variable
 DirFiles = os.listdir(Dir)                              #Dir is your directory path, lists all elements (files) in the folder
 NumFiles = len(DirFiles)                                #Determines number of files in the folder
 DirNames = list(DirFiles)
