@@ -11,10 +11,20 @@ csvList=list(csv.reader(open(root.filename)))#This puts csv files into a 2d list
 print(csvList)
 
 print("Rows: =",len(csvList),"\ncollumns: ",len(csvList[0]))
+print("last Row Size: ", len(csvList[len(csvList)-1]),"\n")
 
-def csvTruncate(uFile):
 
-def transpose(OldList): #transpose the 2d list given
+def truncateCsv(uList):   #Truncates the 2d array until all collumns have the same number of Rows
+    tempList=uList
+    while(len(tempList[0])!=len(tempList[len(tempList)-1])):
+        del tempList[-1]
+        print("deleted last Row")
+    print("Rows: =",len(tempList),"\ncollumns: ",len(tempList[0]))
+    print("last Row Size: ", len(tempList[len(tempList)-1]),"\n")
+    return tempList
+
+
+def transposeCsv(OldList): #transpose the 2d list given
     newlist = []
     i = 0
     while i < len(OldList[i]):
@@ -26,7 +36,6 @@ def transpose(OldList): #transpose the 2d list given
         newlist.append(vec)
         i = i + 1
     return newlist
-#print (transpose(csvList))
-#Stuff=[[1,2],[4,5],[7,8]]
-#newStuff=transpose(Stuff)
-#print (newStuff)
+
+truncatedList=truncateCsv(csvList)
+print (transposeCsv(truncatedList))
