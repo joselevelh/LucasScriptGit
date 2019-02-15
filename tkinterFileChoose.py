@@ -1,6 +1,12 @@
-from tkinter import filedialog
-from tkinter import *
+from statistics import mean
 
-root = Tk()
-root.filename =  filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
-print (root.filename)
+
+collumn=[[10, 20], [30, 40, 50, 60, 70]]
+collumnData=collumn[1][1:]
+#collumnData=niceData[colCounter][1:]   #The rest of the elements in each collumn are data points.
+collumnMean= mean(collumnData)
+#collumnStdev= stdev(collumnData)
+#collumnVar=variance(collumnData)
+#collumnMin=min(collumnData)
+#collumnMax=max(collumnData)
+print(collumnMean)
