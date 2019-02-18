@@ -30,6 +30,7 @@ def transposeCsv(OldList): #transpose the 2d list given
 
 def printData(niceData):    # parse the truncated 2d list for relevant data and print it nicely onto a text file.
     with open("Output.txt", "w") as text_file:
+        print("Hey ${PERSON_NAME}, \n This email should contain the data you are looking for -Jose Level \n ", file=text_file)
         numCols=len(niceData)   #Amount of columns in niceData
         i=1    #We want to skip the first Column because it is the time Column and therefore does not contain integer data.
         while (i<numCols):   #go through every Column.

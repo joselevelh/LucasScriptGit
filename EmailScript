@@ -5,8 +5,8 @@ from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-MY_ADDRESS = 'my_address@example.comm'
-PASSWORD = 'mypassword'
+MY_ADDRESS = 'lucas.mallory@geappliances.com'
+PASSWORD = 'Your email password'
 
 def get_contacts(filename):
     """
@@ -33,11 +33,14 @@ def read_template(filename):
     return Template(template_file_content)
 
 def main():
-    names, emails = get_contacts('mycontacts.txt') # read contacts
-    message_template = read_template('message.txt')
+    names, emails = get_contacts('contacts.txt') # read contacts
+    #names=['Lucas']
+    #emails=['lucas.mallory@geappliances.com']
+    #emails=['jose.levelh@gmail.com']
+    message_template = read_template('Output.txt')
 
     # set up the SMTP server
-    s = smtplib.SMTP(host='your_host_address_here', port=your_port_here)
+    s = smtplib.SMTP(host='smtp-mail.outlook.com', port=587 )
     s.starttls()
     s.login(MY_ADDRESS, PASSWORD)
 
@@ -54,7 +57,7 @@ def main():
         # setup the parameters of the message
         msg['From']=MY_ADDRESS
         msg['To']=email
-        msg['Subject']="This is TEST"
+        msg['Subject']="This is a TEST"
 
         # add in the message body
         msg.attach(MIMEText(message, 'plain'))
