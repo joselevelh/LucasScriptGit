@@ -2,6 +2,8 @@ from tkinter import filedialog
 from tkinter import *
 import csv
 from statistics import mean
+from statistics import stdev
+from statistics import variance
 
 
 def truncateCsv(uList):   #Truncates the 2d array until all Columns have the same number of Rows
@@ -33,13 +35,20 @@ def printData(niceData):    # parse the truncated 2d list for relevant data and 
         cTitle=niceData[i][0]   #The first element of each Column is the title of that Column.
         cData=niceData[i][1:]   #The rest of the elements in each Column are data strings.
         print ("This is the title: ",cTitle)
-        print (" This is the Data: ",cData,"\n")
+        print (" This is the Data as strings: ",cData)
+        cData=list(map(int,cData))
+        print (" This is the Data as integers: ",cData)
         #cData=list(map(int,cData[i]))   #Make the list of strings into integers.
-        #cMean= mean(cData[i])
-        #ColumnStdev= statistics.stdev(ColumnData)
-        #ColumnVar= statistics.variance(ColumnData)
-        #ColumnMin=min(ColumnData)
-        #ColumnMax=max(ColumnData)
+        cMean= mean(cData)
+        cStdev= stdev(cData)
+        cVar= variance(cData)
+        cMin=min(cData)
+        cMax=max(cData)
+        print (" This is the mean: ",cMean)
+        print (" This is the Standard Deviation: ",cStdev)
+        print (" This is the Variance: ",cVar)
+        print (" This is the min: ",cMin)
+        print (" This is the max: ",cMax,"\n")
         i+=1
 #    with open("Output.txt", "w") as text_file:
 #        print("Column: {}".format(ColumnData), file=text_file)
