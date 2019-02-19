@@ -44,7 +44,7 @@ def printData(niceData):    # parse the truncated 2d list for relevant data and 
         i=1    #We want to skip the first Column because it is the time Column and therefore does not contain integer data.
         while (i<numCols):   #go through every Column.
             cTitle=niceData[i][0]   #The first element of each Column is the title of that Column.
-            if "Diff" in cTitle:
+            if "Diff" in cTitle:   #We only want the Diff_Key... data.
                 cData=niceData[i][1:]   #The rest of the elements in each Column are data strings.
                 cData=list(map(int,cData))
                 cMean= newMean(cData)   #we had to write a new mean function so that it did not include the zeros in the list.
@@ -78,10 +78,17 @@ def removeBlanks(bList): #bList is a 2d list with elements that may be empty str
             i+=1
     return wBlanks
 
-def getDelta(list1,list2,threshold): #
+def getDelta(list1,list2,threshold): # the difference between list 1 and list 2 and returns a 2d list delta[][] where delta[0]-> value difference and delta[1]-> boolean check for threshold pass.
     if not (len(list1)==len(list2)):
         raise Exception('The two Lists should be the same dimensions')
         return []
+    delta=[][]
+    i=0
+    while i<len(list1):
+        delta[0].append(abs(list1[i]-list2[i]))   #write the absolute value of the difference between list1 and list2 to delta[0]
+        delta[1].append(delta[0][i]>= threshold)  #write boolean check for delta and threshold to delta[1]
+        i+=1
+    return delta
 
 root = Tk()
 root.filename =  filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("csv files","*.CSV"),("all files","*.*")))
@@ -90,11 +97,11 @@ root.filename =  filedialog.askopenfilename(initialdir = "/",title = "Select fil
 csvList=[]
 csvList=list(csv.reader(open(root.filename)))#This puts csv files into a 2d list
 
-#print(csvList)
-#print(removeBlanks(csvList))
-#print("Now without extra rows:\n ")
-#print(truncateCsv(removeBlanks(csvList)))
-#print("Now with a transpose:\n ")
-#print(transposeCsv(truncateCsv(removeBlanks(csvList))))
-#print("Now with data:\n ")
-print(printData(transposeCsv(truncateCsv(removeBlanks(csvList)))))
+    #print(csvList)
+    #print(removeBlanks(csvList))
+    #print("Now without extra rows:\n ")
+    #print(truncateCsv(removeBlanks(csvList)))
+    #print("Now with a transpose:\n ")
+    #print(transposeCsv(truncateCsv(removeBlanks(csvList))))
+    #print("Now with data:\n ")
+#print(printData(transposeCsv(truncateCsv(removeBlanks(csvList)))))
