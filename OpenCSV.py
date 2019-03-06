@@ -7,12 +7,18 @@ from statistics import variance
 
 def newMean(list0):   #gets the mean of the list not including zeros.
     new=[]
+    empty=True
     i=0
     while i<len(list0):
         if not list0[i]==0:
             new.append(list0[i])
+            if not list0[i] == 0 :
+                    empty=False
         i+=1
-    return mean(new)
+    if empty:
+        return 0
+    else:
+        return mean(new)
 
 def truncateCsv(uList):   #Truncates the 2d array until all Columns have the same number of Rows
     tempList=uList
@@ -37,6 +43,10 @@ def transposeCsv(OldList): #transpose the 2d list given
     return newlist
 
 def printData(niceData):    # parse the truncated 2d list for relevant data and print it nicely onto a text file.
+    #Prompt user for threshold
+    thresholdVar= 2
+    tempRaw,tempBsln,tempDela=[],[],[] #initialize temp raw and baseline variables
+
     with open("Output.txt", "w") as text_file:
         print("Hey ${PERSON_NAME}, \n This email should contain the data you are looking for -Jose Level \n ", file=text_file)
         print("File Opened: {}\n".format(root.filename), file=text_file)
@@ -47,7 +57,7 @@ def printData(niceData):    # parse the truncated 2d list for relevant data and 
             if "Diff" in cTitle:   #We only want the Diff_Key... data.
                 cData=niceData[i][1:]   #The rest of the elements in each Column are data strings.
                 cData=list(map(int,cData))
-                cMean= newMean(cData)   #we had to write a new mean function so that it did not include the zeros in the list.
+                cMean= newMean(cData)   #We had to write a new mean function so that it did not include the zeros in the list.
                 cStdev= stdev(cData)
                 cVar= variance(cData)
                 cMin=min(cData)
@@ -60,6 +70,23 @@ def printData(niceData):    # parse the truncated 2d list for relevant data and 
                 print("Min: {}".format(cMin), file=text_file)
                 print("Max: {}".format(cMax), file=text_file)
                 print("\n", file=text_file)
+            elif "Raw" in cTitle:
+                tempRaw= niceData[i][1:]
+                tempRaw=list(map(int,tempRaw))
+                rawTitle= cTitle
+            elif "Bsln" in cTitle:
+                tempBsln= niceData[i][1:]
+                tempBsln=list(map(int,tempBsln))
+                bslnTitle= cTitle
+                tempDelta= getDelta(tempRaw,tempBsln,thresholdVar)   #Use getDelta() to create a list of deltas given the raw, bsln and threshold
+                cTitle = "DeltaList"   #change the title to correctly label the delta list we are printing
+                #print("Title: {}".format(cTitle), file=text_file)
+                #print("Delta: {}".format(tempDelta[0]), file=text_file)
+                #print("Status: {}".format(tempDelta[1]), file=text_file)
+                print("Max: {}".format(max(tempDelta[2])), file=text_file)
+                print("Mean: {}".format(newMean(tempDelta[2])), file=text_file)
+                print("\n", file=text_file)
+
             i+=1
 
 def removeBlanks(bList): #bList is a 2d list with elements that may be empty strings, we want to remove these empty strings.
@@ -78,16 +105,22 @@ def removeBlanks(bList): #bList is a 2d list with elements that may be empty str
             i+=1
     return wBlanks
 
-def getDelta(list1,list2,threshold): # the difference between list 1 and list 2 and returns a 2d list delta[][] where delta[0]-> value difference and delta[1]-> boolean check for threshold pass.
-    if not (len(list1)==len(list2)):
+def getDelta(raw,bsln,threshold): # the difference between list 1 and list 2 and returns a 2d list delta[][] where delta[0]-> value difference and delta[1]-> boolean check for threshold pass.
+    if not (len(raw)==len(bsln)):
         raise Exception('The two Lists should be the same dimensions')
         return []
-    delta=[][]
+    delta=raw   #placeholders for the delta values
+    delta.append(bsln)
+    delta.append(bsln)
+    tempList1,tempList2,tempList3=[],[],[]
     i=0
-    while i<len(list1):
-        delta[0].append(abs(list1[i]-list2[i]))   #write the absolute value of the difference between list1 and list2 to delta[0]
-        delta[1].append(delta[0][i]>= threshold)  #write boolean check for delta and threshold to delta[1]
+    while i<len(raw)-1:
+        tempList1.append(abs(raw[i]-bsln[i]))   #write the absolute value of the difference between raw and bsln to delta[0]
+        tempList2.append(int(tempList1[i]>= threshold))  #write boolean check for delta and threshold to delta[1]
+        if (abs(raw[i]-bsln[i])-threshold >=0):
+            tempList3.append(abs(raw[i]-bsln[i]))
         i+=1
+    delta[0],delta[1],delta[2]=tempList1,tempList2,tempList3
     return delta
 
 root = Tk()
@@ -104,4 +137,4 @@ csvList=list(csv.reader(open(root.filename)))#This puts csv files into a 2d list
     #print("Now with a transpose:\n ")
     #print(transposeCsv(truncateCsv(removeBlanks(csvList))))
     #print("Now with data:\n ")
-#print(printData(transposeCsv(truncateCsv(removeBlanks(csvList)))))
+print(printData(transposeCsv(truncateCsv(removeBlanks(csvList)))))
