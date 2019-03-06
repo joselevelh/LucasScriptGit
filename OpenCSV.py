@@ -63,13 +63,13 @@ def printData(niceData):    # parse the truncated 2d list for relevant data and 
                 cMin=min(cData)
                 cMax=max(cData)
                 print("Title: {}".format(cTitle), file=text_file)   #Print all statistics onto the Output.txt file
-                print("Data: {}".format(cData), file=text_file)
+                #print("Data: {}".format(cData), file=text_file)
                 print("Mean: {}".format(cMean), file=text_file)
                 print("Standard Deviation: {}".format(cStdev), file=text_file)
                 print("Variance: {}".format(cVar), file=text_file)
                 print("Min: {}".format(cMin), file=text_file)
                 print("Max: {}".format(cMax), file=text_file)
-                print("\n", file=text_file)
+            #    print("\n", file=text_file)
             elif "Raw" in cTitle:
                 tempRaw= niceData[i][1:]
                 tempRaw=list(map(int,tempRaw))
@@ -79,8 +79,8 @@ def printData(niceData):    # parse the truncated 2d list for relevant data and 
                 tempBsln=list(map(int,tempBsln))
                 bslnTitle= cTitle
                 tempDelta= getDelta(tempRaw,tempBsln,thresholdVar)   #Use getDelta() to create a list of deltas given the raw, bsln and threshold
-                cTitle = "DeltaList"   #change the title to correctly label the delta list we are printing
-                #print("Title: {}".format(cTitle), file=text_file)
+                cTitle = "Deltas"   #change the title to correctly label the delta list we are printing
+                print("Title: {}".format(cTitle), file=text_file)
                 #print("Delta: {}".format(tempDelta[0]), file=text_file)
                 #print("Status: {}".format(tempDelta[1]), file=text_file)
                 print("Max: {}".format(max(tempDelta[2])), file=text_file)
@@ -109,9 +109,9 @@ def getDelta(raw,bsln,threshold): # the difference between list 1 and list 2 and
     if not (len(raw)==len(bsln)):
         raise Exception('The two Lists should be the same dimensions')
         return []
-    delta=raw   #placeholders for the delta values
-    delta.append(bsln)
-    delta.append(bsln)
+    delta=[1]   #placeholders for the delta values
+    delta.append([1])
+    delta.append([1])
     tempList1,tempList2,tempList3=[],[],[]
     i=0
     while i<len(raw)-1:

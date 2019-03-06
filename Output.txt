@@ -1,5 +1,181 @@
 Hey ${PERSON_NAME}, 
  This email should contain the data you are looking for -Jose Level 
  
-File Opened: C:/Users/240027853/Documents/Temporary/Double/RevC_030_Dbl2.csv
+File Opened: C:/Users/240027853/Documents/Temporary/Double/RevC_060_Dbl2.csv
 
+Title: Deltas
+Max: 98
+Mean: 7.8397790055248615
+
+
+Title: Diff_Key1_Sns0
+Mean: 89
+Standard Deviation: 16.129157920627463
+Variance: 260.1497352285396
+Min: 0
+Max: 92
+Title: Deltas
+Max: 143
+Mean: 11.217877094972067
+
+
+Title: Diff_Key2_Sns0
+Mean: 135.14285714285714
+Standard Deviation: 24.43620494728955
+Variance: 597.1281122259383
+Min: 0
+Max: 138
+Title: Deltas
+Max: 81
+Mean: 8.097560975609756
+
+
+Title: Diff_Key3_Sns0
+Mean: 67.44444444444444
+Standard Deviation: 14.035085535025207
+Variance: 196.9836259754738
+Min: 0
+Max: 75
+Title: Deltas
+Max: 150
+Mean: 10.912087912087912
+
+
+Title: Diff_Key4_Sns0
+Mean: 138.85714285714286
+Standard Deviation: 25.185856896048964
+Variance: 634.3273875882571
+Min: 0
+Max: 148
+Title: Deltas
+Max: 130
+Mean: 10.902857142857142
+
+
+Title: Diff_Key5_Sns0
+Mean: 111.25
+Standard Deviation: 22.052618993201435
+Variance: 486.3180044593087
+Min: 0
+Max: 126
+Title: Deltas
+Max: 124
+Mean: 10.821428571428571
+
+
+Title: Diff_Key6_Sns0
+Mean: 111.85714285714286
+Standard Deviation: 20.389617601753717
+Variance: 415.736505945745
+Min: 0
+Max: 118
+Title: Deltas
+Max: 138
+Mean: 11.08433734939759
+
+
+Title: Diff_Key7_Sns0
+Mean: 113.125
+Standard Deviation: 22.31692884517579
+Variance: 498.04531308063923
+Min: 0
+Max: 132
+Title: Deltas
+Max: 123
+Mean: 11.24223602484472
+
+
+Title: Diff_Key8_Sns0
+Mean: 100.875
+Standard Deviation: 20.17076796148515
+Variance: 406.8598801560758
+Min: 0
+Max: 118
+Title: Deltas
+Max: 97
+Mean: 10.381294964028777
+
+
+Title: Diff_Key21_Sns0
+Mean: 85.57142857142857
+Standard Deviation: 15.618952192630891
+Variance: 243.95166759568932
+Min: 0
+Max: 91
+Title: Deltas
+Max: 447
+Mean: 24.6875
+
+
+Title: Diff_Key23_Sns0
+Mean: 388.5
+Standard Deviation: 76.88058711301616
+Variance: 5910.624674842066
+Min: 0
+Max: 447
+Title: Deltas
+Max: 129
+Mean: 11.340579710144928
+
+
+Title: Diff_Key24_Sns0
+Mean: 119
+Standard Deviation: 21.544358822306325
+Variance: 464.1593970642884
+Min: 0
+Max: 124
+Title: Deltas
+Max: 119
+Mean: 11.095238095238095
+
+
+Title: Diff_Key26_Sns0
+Mean: 104.75
+Standard Deviation: 20.81176587082911
+Variance: 433.1295986622073
+Min: 0
+Max: 115
+Title: Deltas
+Max: 157
+Mean: 26.28921568627451
+
+
+Title: Diff_Key31_Sns0
+Mean: 142.5
+Standard Deviation: 27.641067524576165
+Variance: 764.0286138981792
+Min: 0
+Max: 152
+Title: Deltas
+Max: 619
+Mean: 31.2896174863388
+
+
+Title: Diff_Key32_Sns0
+Mean: 462.1111111111111
+Standard Deviation: 104.53390904881364
+Variance: 10927.338141025642
+Min: 0
+Max: 617
+Title: Deltas
+Max: 159
+Mean: 12.220588235294118
+
+
+Title: Diff_Key33_Sns0
+Mean: 141.85714285714286
+Standard Deviation: 25.826846292359075
+Variance: 667.0259894091416
+Min: 0
+Max: 154
+Title: Deltas
+Max: 108
+Mean: 10.765060240963855
+
+
+Title: Diff_Key34_Sns0
+Mean: 99.16666666666667
+Standard Deviation: 16.679553964015305
+Variance: 278.2075204384987
+Min: 0
+Max: 108
