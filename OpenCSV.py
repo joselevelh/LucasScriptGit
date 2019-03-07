@@ -68,8 +68,8 @@ def printData(niceData):    # parse the truncated 2d list for relevant data and 
                 print("Standard Deviation: {}".format(cStdev), file=text_file)
                 print("Variance: {}".format(cVar), file=text_file)
                 print("Min: {}".format(cMin), file=text_file)
-                print("Max: {}".format(cMax), file=text_file)
-            #    print("\n", file=text_file)
+                print("Max: {} \n".format(cMax), file=text_file)
+                #print("\n", file=text_file)
             elif "Raw" in cTitle:
                 tempRaw= niceData[i][1:]
                 tempRaw=list(map(int,tempRaw))
@@ -85,7 +85,8 @@ def printData(niceData):    # parse the truncated 2d list for relevant data and 
                 #print("Status: {}".format(tempDelta[1]), file=text_file)
                 print("Max: {}".format(max(tempDelta[2])), file=text_file)
                 print("Mean: {}".format(newMean(tempDelta[2])), file=text_file)
-                print("\n", file=text_file)
+                print("------------------------------------------------------------------------------------------------------------------------------------", file=text_file)
+                #print("\n", file=text_file)
 
             i+=1
 
