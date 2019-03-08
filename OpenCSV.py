@@ -15,7 +15,7 @@ def newMean(list0):   #gets the mean of the list not including zeros.
             if not list0[i] == 0 :
                     empty=False
         i+=1
-    if empty:
+    if empty:   #the mean function must be non-zero so we are making sure that we return 0 as the mean if the list is all zeroes.
         return 0
     else:
         return mean(new)
@@ -42,9 +42,9 @@ def transposeCsv(OldList): #transpose the 2d list given
         i = i + 1
     return newlist
 
-def printData(niceData):    # parse the truncated 2d list for relevant data and print it nicely onto a text file.
+def printData(niceData,tHold):    # parse the truncated 2d list for relevant data and print it nicely onto a text file.
     #Prompt user for threshold
-    thresholdVar= 2
+    thresholdVar= tHold
     tempRaw,tempBsln,tempDela=[],[],[] #initialize temp raw and baseline variables
 
     with open("Output.txt", "w") as text_file:
@@ -128,14 +128,18 @@ root = Tk()
 root.filename =  filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("csv files","*.CSV"),("all files","*.*")))
 #print (root.filename)
 
-csvList=[]
-csvList=list(csv.reader(open(root.filename)))#This puts csv files into a 2d list
+def main(tHold):
+#    thresholdVar= tHold
+    csvList=[]
+    csvList=list(csv.reader(open(root.filename)))#This puts csv files into a 2d list
 
-    #print(csvList)
-    #print(removeBlanks(csvList))
-    #print("Now without extra rows:\n ")
-    #print(truncateCsv(removeBlanks(csvList)))
-    #print("Now with a transpose:\n ")
-    #print(transposeCsv(truncateCsv(removeBlanks(csvList))))
-    #print("Now with data:\n ")
-print(printData(transposeCsv(truncateCsv(removeBlanks(csvList)))))
+        #print(csvList)
+        #print(removeBlanks(csvList))
+        #print("Now without extra rows:\n ")
+        #print(truncateCsv(removeBlanks(csvList)))
+        #print("Now with a transpose:\n ")
+        #print(transposeCsv(truncateCsv(removeBlanks(csvList))))
+        #print("Now with data:\n ")
+    print(printData(transposeCsv(truncateCsv(removeBlanks(csvList))),(tHold)))
+
+main(2)
