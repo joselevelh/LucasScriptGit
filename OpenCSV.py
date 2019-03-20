@@ -124,9 +124,12 @@ def getDelta(raw,bsln,threshold): # the difference between list raw and list 2 a
     delta[0],delta[1],delta[2]=tempList1,tempList2,tempList3
     return delta
 
+
+root = Tk()
+root.filename =  filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("csv files","*.CSV"),("all files","*.*")))
 def main():
 
-
+    
     #print (root.filename)
     csvList=[]
     csvList=list(csv.reader(open(root.filename)))#This puts csv files into a 2d list
