@@ -106,7 +106,7 @@ def removeBlanks(bList): #bList is a 2d list with elements that may be empty str
             i+=1
     return wBlanks
 
-def getDelta(raw,bsln,threshold): # the difference between list 1 and list 2 and returns a 2d list delta[][] where delta[0]-> value difference and delta[1]-> boolean check for threshold pass.
+def getDelta(raw,bsln,threshold): # the difference between list raw and list 2 and returns a 2d list delta[][] where delta[0]-> value difference and delta[1]-> boolean check for threshold pass.
     if not (len(raw)==len(bsln)):
         raise Exception('The two Lists should be the same dimensions')
         return []
@@ -124,15 +124,14 @@ def getDelta(raw,bsln,threshold): # the difference between list 1 and list 2 and
     delta[0],delta[1],delta[2]=tempList1,tempList2,tempList3
     return delta
 
-root = Tk()
-root.filename =  filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("csv files","*.CSV"),("all files","*.*")))
-#print (root.filename)
+def main():
 
-def main(tHold):
-#    thresholdVar= tHold
+
+    #print (root.filename)
     csvList=[]
     csvList=list(csv.reader(open(root.filename)))#This puts csv files into a 2d list
 
+    tHold=2   #this will be specified by the user.
         #print(csvList)
         #print(removeBlanks(csvList))
         #print("Now without extra rows:\n ")
@@ -142,4 +141,4 @@ def main(tHold):
         #print("Now with data:\n ")
     print(printData(transposeCsv(truncateCsv(removeBlanks(csvList))),(tHold)))
 
-main(2)
+main()
